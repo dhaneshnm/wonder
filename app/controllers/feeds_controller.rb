@@ -77,10 +77,11 @@ class FeedsController < ApplicationController
     end
 
     def rss_read url
-      feeds = []
+      feeds = {:title => '', :items => []}
       open(url) do |rss|
         feed = RSS::Parser.parse(rss)
-        feeds += feed.items
+        feeds[:items] += feed.items
+        feeds[:title] = feed.channel.title
       end
       feeds
     end  

@@ -4,7 +4,8 @@
   <strong>Url:</strong>
   <%= @feed.url %>
 </p>
-<% @feeds.each do |f| %>
+<b> <%= @feeds[:title] %></b>
+<% @feeds[:items].each do |f| %>
 <p>
 <a href=<%= f.link%>><%= f.title %></a>
 </p>
