@@ -4,11 +4,16 @@
   <strong>Url:</strong>
   <%= @feed.url %>
 </p>
-<b> <%= @feeds[:title] %></b>
-<% @feeds[:items].each do |f| %>
-<p>
-<a href=<%= f.link%>><%= f.title %></a>
-</p>
+<b> <%= @feeds.channel.title %></b>
+<ul>
+<% @feeds.items.each do |f| %>
+<li>
+  <a href=<%= f.link%>><%= f.title %></a>
+  <div>
+    <%= URI.unescape(f.description).html_safe %>
+  </div>
+</li>
 <% end %>
+</ul>
 <%= link_to 'Edit', edit_feed_path(@feed) %> |
 <%= link_to 'Back', feeds_path %>
