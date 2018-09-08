@@ -1,10 +1,6 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @feed.url %>
-</p>
-<b> <%= @feeds.channel.title %></b>
+<b><%= @feeds.channel.title %></b>
+<p> <%= @feeds.channel.description %></p>
 <ul>
 <% @feeds.items.each do |f| %>
 <li>

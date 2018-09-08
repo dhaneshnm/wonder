@@ -29,7 +29,9 @@ class FeedsController < ApplicationController
   # POST /feeds.json
   def create
     @feed = Feed.new(feed_params)
-
+    rss = RSS::Parser.parse(open(@feed.url).read, false)
+    @feed.description = rss.channel.description
+    @feed.title = rss.channel.title
     respond_to do |format|
       if @feed.save
         format.html { redirect_to @feed, notice: 'Feed was successfully created.' }
