@@ -1,5 +1,8 @@
 require 'rss'
 require 'open-uri'
+require 'nokogiri'
+require 'sentimental'
+require 'textmood'
 
 class FeedsController < ApplicationController
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
@@ -80,5 +83,6 @@ class FeedsController < ApplicationController
 
     def rss_read url
       RSS::Parser.parse(open(url).read, false)
-    end  
+    end
+     
 end
