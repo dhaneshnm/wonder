@@ -6,8 +6,6 @@
 <li>
   <span><a href=<%= f.link%>><%= f.title %></a></span>
   <span> <%= URI.unescape(f.description).html_safe %> </span>
-  <span><%= sentiments(text_content(f.link)) %></span>
-  <span><%= textmoods(text_content(f.link)) %></span>
 </li>
 <% end %>
 </ul>

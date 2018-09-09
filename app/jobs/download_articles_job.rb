@@ -2,6 +2,7 @@ require 'open-uri'
 require 'nokogiri'
 require 'sentimental'
 require 'textmood'
+require 'rss'
 
 class DownloadArticlesJob < ApplicationJob
   queue_as :default
@@ -12,18 +13,23 @@ class DownloadArticlesJob < ApplicationJob
       rss = RSS::Parser.parse(open(feed.url).read, false)
       rss.items.each do |item|
         if( Article.find_by_link(item.link) == nil)
-          content = text_content(item.link)
-          article = {
-            :link => item.link
-            :title => item.title
-            :description => URI.unescape(f.description).html_safe
-            :text_content => content
-            :sentiment => sentiments(content)
-            :sentiment_score =>  textmoods(content)
-            :feed_id => feed.id
-          }
-          Article.create(article)
-        end  
+          begin
+            content = text_content(item.link)
+            article = {
+              :link => item.link,
+              :title => item.title,
+              :description => URI.unescape(item.description).html_safe,
+              :text_content => content,
+              :sentiment => sentiments(content),
+              :sentiment_score =>  textmoods(content),
+              :feed_id => feed.id
+            }
+            Article.create(article)
+            sleep(1)
+          rescue
+            puts 'link failed #{item.link}'
+          end    
+        end
       end  
     end
   end
