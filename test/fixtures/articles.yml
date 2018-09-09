@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  link: MyString
+  description: MyText
+  sentiment: MyString
+  sentiment_score: 1
+  feed: one
+
+two:
+  link: MyString
+  description: MyText
+  sentiment: MyString
+  sentiment_score: 1
+  feed: two
