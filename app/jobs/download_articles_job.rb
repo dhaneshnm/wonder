@@ -9,13 +9,14 @@ class DownloadArticlesJob < ApplicationJob
 
   def perform(*args)
     # Do something later
+    user_agent = {'User-Agent' => 'firefox'}
     begin
       Feed.all.each do |feed|
         rss = RSS::Parser.parse(open(feed.url).read, false)
         rss.items.each do |item|
-          if( Article.find_by_link(item.link) == nil)
+          if(Article.find_by_link(item.link) == nil)
             begin
-              content = text_content(item.link.strip)
+              content = text_content(item.link.strip, user_agent)
               article = {
                 :link => item.link.strip,
                 :title => item.title,
@@ -38,8 +39,8 @@ class DownloadArticlesJob < ApplicationJob
     end
   end
 
-  def text_content link
-    doc = Nokogiri::HTML(open(link))
+  def text_content(link, user_agent)
+    doc = Nokogiri::HTML(open(link, user_agent))
     text = ''
     doc.css('p,h1').each do |e|
       text << e.content
