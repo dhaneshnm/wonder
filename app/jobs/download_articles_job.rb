@@ -17,6 +17,7 @@ class DownloadArticlesJob < ApplicationJob
           if(Article.find_by_link(item.link) == nil)
             begin
               content = text_content(item.link.strip, user_agent)
+              puts item.pubDate
               article = {
                 :link => item.link.strip,
                 :title => item.title,
@@ -28,13 +29,13 @@ class DownloadArticlesJob < ApplicationJob
               }
               Article.create(article)
               sleep(1)
-            rescue
+            rescue Exception
               puts 'link failed'
             end    
           end
         end  
       end
-    rescue
+    rescue Exception
       puts 'feed failed'    
     end
   end
@@ -49,9 +50,13 @@ class DownloadArticlesJob < ApplicationJob
   end  
   
   def sentiments text
-    analyzer = Sentimental.new
-    analyzer.load_defaults
-    analyzer.sentiment text
+    begin
+      analyzer = Sentimental.new
+      analyzer.load_defaults
+      analyzer.sentiment text
+    rescue Exception
+      :negative
+    end    
   end 
 
   def textmoods text
