@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_09_172455) do
+ActiveRecord::Schema.define(version: 2018_09_11_120131) do
 
   create_table "articles", force: :cascade do |t|
     t.string "link"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2018_09_09_172455) do
     t.datetime "updated_at", null: false
     t.string "title"
     t.text "text_content"
+    t.datetime "pub_date"
     t.index ["feed_id"], name: "index_articles_on_feed_id"
   end
 

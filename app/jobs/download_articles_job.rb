@@ -17,7 +17,6 @@ class DownloadArticlesJob < ApplicationJob
           if(Article.find_by_link(item.link) == nil)
             begin
               content = text_content(item.link.strip, user_agent)
-              puts item.pubDate
               article = {
                 :link => item.link.strip,
                 :title => item.title,
@@ -25,7 +24,8 @@ class DownloadArticlesJob < ApplicationJob
                 :text_content => content,
                 :sentiment => sentiments(content),
                 :sentiment_score =>  textmoods(content),
-                :feed_id => feed.id
+                :feed_id => feed.id,
+                :pub_date => item.pubDate
               }
               Article.create(article)
               sleep(1)
