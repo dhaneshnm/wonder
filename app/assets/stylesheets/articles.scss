@@ -1,3 +1,45 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.container {
+  width: 80%;
+  background: white;
+  margin: auto;
+  padding: 10px;
+  color: black;
+}
+.one {
+  background:  green;
+  float: left;
+  width: 33%;
+  color: white;
+  a {
+    color: white;
+  }
+  height: 800px;
+  overflow: auto;
+}
+.two {
+  background: blue;
+  float: left;
+  width: 33%;
+  color: white;
+  a {
+    color: white;
+  }
+  height: 800px;
+  overflow: auto;
+}
+
+.three {
+  background: black;
+  float: right;
+  float: left;
+  width: 33%;
+  color: white;
+  a {
+    color: white;
+  }
+  height: 800px;
+  overflow: auto;
+}

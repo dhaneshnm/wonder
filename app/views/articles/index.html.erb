@@ -1,13 +1,44 @@
-<h1>Articles</h1>
-<ul>
-  <% @articles.each do |article| %>
-    <li>
-      <a href=<%= article.link %>><%= article.title %></a>
-      <p>
-        <%= URI.unescape(article.description).html_safe %>
-      </p>
-    </li>
-  <% end %>
-</ul>    
+<div class='container'>
+  <h1>Articles</h1>
+  <div class='one'>
+    <h2>Good</h2>
+    <ul>
+      <% @positive.each do |article| %>
+        <li>
+          <a href=<%= article.link %>><%= article.title %></a>
+          <p>
+            <%= URI.unescape(article.description).html_safe %>
+          </p>
+        </li>
+      <% end %>
+    </ul> 
+  </div>
+  <div class='two'>
+    <h2>Not so good</h2>  
+    <ul>
+      <% @neutral.each do |article| %>
+        <li>
+          <a href=<%= article.link %>><%= article.title %></a>
+          <p>
+            <%= URI.unescape(article.description).html_safe %>
+          </p>
+        </li>
+      <% end %>
+    </ul> 
+  </div> 
+  <div class='three'>
+    <h2>Bad</h2>
+    <ul>
+      <% @negative.each do |article| %>
+        <li>
+          <a href=<%= article.link %>><%= article.title %></a>
+          <p>
+            <%= URI.unescape(article.description).html_safe %>
+          </p>
+        </li>
+      <% end %>
+    </ul> 
+  </div>         
+</div>
 
 
