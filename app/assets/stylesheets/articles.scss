@@ -2,11 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .container {
+  width: 90%;
+  background: white;
+  margin: auto;
+  padding: 10px;
+  color: black;
+}
+
+.one-container {
+  width: 10%;
+  background: white;
+  margin: auto;
+  padding: 10px;
+  color: black;
+  float: left;
+  height: 800px;
+  overflow: auto;
+}
+
+.two-container {
   width: 80%;
   background: white;
   margin: auto;
   padding: 10px;
   color: black;
+  float: left;
+  height: 800px;
 }
 .one {
   background:  green;
