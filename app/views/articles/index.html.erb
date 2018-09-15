@@ -2,10 +2,13 @@
   <div class='one-container'>
     <div>
       <h1>Feeds</h1>
-      <div>
+      <div class='feed'>
+        <p>
+          <a href=<%= '/articles/index' %>>ALL</a>
+        </p>
         <% @feeds.each do |feed| %>
           <p>
-            <b><%= feed.title %></b>
+            <a href=<%= '/articles/index?feed_id='+feed.id.to_s %>><%= feed.title %></a>
           </p>
         <% end %>
       </div> 

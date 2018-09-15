@@ -1,12 +1,20 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+html {
+  background-color: black;
+  body {
+    background-color: black; 
+  }
+}
+
 .container {
   width: 90%;
-  background: white;
+  background: black;
   margin: auto;
   padding: 10px;
-  color: black;
+  color:white;
 }
 
 .one-container {
@@ -14,53 +22,64 @@
   background: white;
   margin: auto;
   padding: 10px;
-  color: black;
+  color:black;
   float: left;
-  height: 100%;
   overflow: auto;
+  cursor: pointer;
+  height: 850px;
 }
 
 .two-container {
   width: 80%;
-  background: white;
   margin: auto;
   padding: 10px;
-  color: black;
+  color:white;
   float: left;
-  height: 800px;
+  background-color: #424242;
+  height: 850px;
 }
 .one {
-  background:  green;
+  padding: 10px;
+  background:  #9E9E9E;
   float: left;
-  width: 33%;
+  width: 30%;
   color: white;
   a {
     color: white;
   }
-  height: 800px;
+  height: 780px;
   overflow: auto;
 }
 .two {
-  background: blue;
+  padding: 10px;
+  background: #616161;
   float: left;
-  width: 33%;
+  width: 30%;
   color: white;
   a {
     color: white;
   }
-  height: 800px;
+  height: 780px;
   overflow: auto;
 }
 
 .three {
-  background: black;
+  padding: 10px;
+  background: #757575;
   float: right;
   float: left;
-  width: 33%;
+  width: 32%;
   color: white;
   a {
     color: white;
   }
-  height: 800px;
+  height: 780px;
   overflow: auto;
+}
+
+.feed {
+  color:white !important;
+  :hover {
+    background: #8D6E63;
+  }
 }
