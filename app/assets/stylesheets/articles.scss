@@ -2,16 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-html {
-  background-color: black;
-  body {
-    background-color: black; 
-  }
-}
 
 .container {
   width: 90%;
-  background: black;
   margin: auto;
   padding: 10px;
   color:white;
@@ -37,6 +30,7 @@ html {
   float: left;
   background-color: #424242;
   height: 850px;
+
 }
 .one {
   padding: 10px;
@@ -73,6 +67,7 @@ html {
   a {
     color: white;
   }
+
   height: 780px;
   overflow: auto;
 }
